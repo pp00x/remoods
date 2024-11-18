@@ -29,7 +29,7 @@ Welcome to **Remoods**, a web application that analyzes the emotional pulse of a
 
 ## Demo
 
-Check out the live demo: [Remoods Live](href="#")
+Check out the live demo: [Remoods Live](https://remoods.vercel.app/)
 
 ## Technologies Used
 
