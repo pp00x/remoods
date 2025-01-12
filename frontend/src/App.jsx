@@ -30,7 +30,7 @@ function App() {
         </ErrorBoundary>
 
         <footer className="mt-12 text-center text-cyan-400/50 text-sm">
-          <p>Made with ❤️ by Prashant Patil</p>
+          <p>Made with ❤️❤️ by Prashant Patil</p>
         </footer>
       </div>
     </div>
