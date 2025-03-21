@@ -86,7 +86,7 @@ function App() {
                 value={subreddit}
                 onChange={(e) => setSubreddit(e.target.value)}
                 placeholder="Enter a subreddit name (e.g., 'programming')"
-                className="w-full pl-12 pr-32 py-4 rounded-full bg-white/90 backdrop-blur-sm border-2 border-white/50 focus:outline-none focus:border-white shadow-lg text-lg"
+                className="w-full pl-12 pr-[8.5rem] sm:pr-32 py-4 rounded-full bg-white/90 backdrop-blur-sm border-2 border-white/50 focus:outline-none focus:border-white shadow-lg text-lg"
               />
               <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
                 <motion.button
@@ -94,7 +94,7 @@ function App() {
                   disabled={loading}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 bg-black text-white rounded-full transition-colors disabled:opacity-50 hover:bg-gray-900"
+                  className="px-4 sm:px-6 py-2 bg-black text-white rounded-full transition-colors disabled:opacity-50 hover:bg-gray-900 text-sm sm:text-base"
                 >
                   {loading ? 'Analyzing...' : 'Analyze Mood'}
                 </motion.button>
