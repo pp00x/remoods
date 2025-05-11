@@ -21,8 +21,10 @@ const reddit = new snoowrap({
 // Helper function to analyze mood
 async function analyzeMood(text) {
   try {
-    // Get the Gemini text model
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-preview-04-17' });
+    // Get the Gemini model name from environment variable or use a default
+    const modelName = process.env.GEMINI_MODEL_NAME || 'gemini-1.5-flash-latest'; // Default model
+    console.log(`Using Gemini model: ${modelName}`); // Log the model being used
+    const model = genAI.getGenerativeModel({ model: modelName });
 
     // Prepare the prompt
     const prompt = `Analyze the overall mood of the following subreddit and provide the mood and an explanation. You must output in the following format:
