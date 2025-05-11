@@ -8,7 +8,19 @@ const connectDB = require('../config/db'); // Adjusted path
 const app = express();
 
 // Middleware
-app.use(cors());
+const frontendURL = process.env.FRONTEND_URL;
+const corsOptions = {
+  origin: frontendURL || '*', // Fallback to all origins if FRONTEND_URL is not set
+  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+if (frontendURL) {
+  console.log(`CORS configured to allow origin: ${frontendURL}`);
+} else {
+  console.warn('FRONTEND_URL environment variable not set. CORS will allow all origins (*). This is not recommended for production.');
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Database Connection
