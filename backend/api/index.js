@@ -23,6 +23,12 @@ connectDB();
 // The path seen by this Express app will be /mood/:subreddit.
 app.use('/mood', moodRoutes);
 
+// Add a root route handler
+app.get("/", (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.send("<h1>Remoods API is running</h1><p>Try accessing /mood/:subreddit</p>");
+});
+
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
