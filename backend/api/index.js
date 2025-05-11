@@ -32,13 +32,14 @@ connectDB();
 // Routes
 // The vercel.json will rewrite "/(.*)" to "/api".
 // A request to your Vercel URL like /api/mood/:subreddit will be routed here.
-// The path seen by this Express app will be /mood/:subreddit.
-app.use('/mood', moodRoutes);
+// The path seen by this Express app will be the original path, e.g., /api/mood/:subreddit.
+app.use('/api/mood', moodRoutes);
 
-// Add a root route handler
-app.get("/", (req, res) => {
+// Add a root route handler for the API base path after Vercel rewrite
+// e.g., https://remoods-api.vercel.app/ (which Vercel rewrites to /api)
+app.get("/api", (req, res) => {
   res.setHeader('Content-Type', 'text/html');
-  res.send("<h1>Remoods API is running</h1><p>Try accessing /mood/:subreddit</p>");
+  res.send("<h1>Remoods API is running</h1><p>Try accessing /api/mood/:subreddit</p>");
 });
 
 // Error Handling Middleware
